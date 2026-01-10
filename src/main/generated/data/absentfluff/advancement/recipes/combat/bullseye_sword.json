@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bullseye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "absentfluff:bullseye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "absentfluff:bullseye_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bullseye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "absentfluff:bullseye_sword"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "absentfluff:block/template_pride_flag15",
+  "textures": {
+    "pattern": "absentfluff:block/pride_altersex_block"
+  }
+}

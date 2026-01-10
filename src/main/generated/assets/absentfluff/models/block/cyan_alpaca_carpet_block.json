@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "absentfluff:block/cyan_alpaca_wool_block"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "absentfluff:necklaces",
+  "ingredients": [
+    {
+      "item": "absentfluff:copper_necklace"
+    },
+    {
+      "item": "absentfluff:kunzite"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:kunzite_copper_necklace"
+  }
+}

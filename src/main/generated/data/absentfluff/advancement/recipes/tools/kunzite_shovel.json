@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_kunzite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "absentfluff:kunzite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "absentfluff:kunzite_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_kunzite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "absentfluff:kunzite_shovel"
+    ]
+  }
+}

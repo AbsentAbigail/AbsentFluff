@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "absentfluff:block/petalite_lamp_inverted"
+    },
+    "lit=true": {
+      "model": "absentfluff:block/petalite_lamp"
+    }
+  }
+}

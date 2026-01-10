@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "absentfluff:lamps",
+  "key": {
+    "g": {
+      "item": "absentfluff:tanzanite"
+    },
+    "l": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "pattern": [
+    " g ",
+    "glg",
+    " g "
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:tanzanite_lamp"
+  }
+}

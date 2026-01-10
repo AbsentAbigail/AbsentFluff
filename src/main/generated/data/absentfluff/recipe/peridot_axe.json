@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "g": {
+      "item": "absentfluff:peridot"
+    },
+    "r": {
+      "item": "absentfluff:tool_rod"
+    }
+  },
+  "pattern": [
+    "gg ",
+    "gr ",
+    " r "
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:peridot_axe"
+  }
+}

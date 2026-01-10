@@ -1,0 +1,6 @@
+{
+  "parent": "absentfluff:block/carpet15",
+  "textures": {
+    "wool": "absentfluff:block/pride_transgender_block"
+  }
+}

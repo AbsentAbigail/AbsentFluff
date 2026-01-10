@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "absentfluff",
+	"version": "${version}",
+	"name": "Absent Fluff",
+	"description": "Gems, Alpacas, and other random things",
+	"authors": [
+		"Absent Abigail"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"abby.absent.fluff.AbsentFluff"
+		],
+		"client": [
+			"abby.absent.fluff.AbsentFluffClient"
+		],
+		"fabric-datagen": [
+			"abby.absent.fluff.AbsentFluffDataGenerator"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

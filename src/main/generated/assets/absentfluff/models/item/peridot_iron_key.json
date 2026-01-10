@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "absentfluff:item/key/iron_key",
+    "layer1": "absentfluff:item/key/peridot"
+  }
+}

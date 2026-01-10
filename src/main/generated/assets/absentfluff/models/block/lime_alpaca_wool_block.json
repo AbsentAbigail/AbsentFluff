@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_glazed_terracotta",
+  "textures": {
+    "pattern": "absentfluff:block/lime_alpaca_wool_block"
+  }
+}

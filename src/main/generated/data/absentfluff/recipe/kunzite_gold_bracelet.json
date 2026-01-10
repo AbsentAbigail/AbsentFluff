@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "absentfluff:bracelets",
+  "ingredients": [
+    {
+      "item": "absentfluff:gold_bracelet"
+    },
+    {
+      "item": "absentfluff:kunzite"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:kunzite_gold_bracelet"
+  }
+}

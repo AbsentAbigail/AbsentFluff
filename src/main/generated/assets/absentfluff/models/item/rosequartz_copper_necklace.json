@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "absentfluff:item/necklace/copper_necklace",
+    "layer1": "absentfluff:item/necklace/rosequartz"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "absentfluff:bracelets",
+  "ingredients": [
+    {
+      "item": "absentfluff:copper_bracelet"
+    },
+    {
+      "item": "absentfluff:fluorite"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:fluorite_copper_bracelet"
+  }
+}

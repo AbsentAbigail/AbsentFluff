@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "g": {
+      "item": "absentfluff:azurite"
+    },
+    "r": {
+      "item": "absentfluff:tool_rod"
+    }
+  },
+  "pattern": [
+    "g",
+    "g",
+    "r"
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:azurite_sword"
+  }
+}

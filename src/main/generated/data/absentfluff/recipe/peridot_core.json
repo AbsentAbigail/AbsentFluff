@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "absentfluff:cores",
+  "key": {
+    "g": {
+      "item": "absentfluff:peridot_block"
+    },
+    "m": {
+      "item": "absentfluff:tool_rod"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "omo",
+    "mgm",
+    "omo"
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:peridot_core"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "absentfluff:bracelets",
+  "ingredients": [
+    {
+      "item": "absentfluff:netherite_bracelet"
+    },
+    {
+      "item": "absentfluff:tanzanite"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "absentfluff:tanzanite_netherite_bracelet"
+  }
+}

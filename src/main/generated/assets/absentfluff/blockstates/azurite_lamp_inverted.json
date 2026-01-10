@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "absentfluff:block/azurite_lamp_inverted"
+    },
+    "lit=true": {
+      "model": "absentfluff:block/azurite_lamp"
+    }
+  }
+}

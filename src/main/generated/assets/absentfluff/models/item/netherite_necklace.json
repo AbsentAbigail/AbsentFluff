@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "absentfluff:item/necklace/netherite_necklace"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "absentfluff:block/gem_core_template",
+  "textures": {
+    "layer1": "absentfluff:block/gem_core_overlay_1",
+    "texture": "absentfluff:block/petalite_block"
+  }
+}
