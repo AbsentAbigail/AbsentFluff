@@ -1,7 +1,0 @@
-{
-  "parent": "absentfluff:block/gem_core_template",
-  "textures": {
-    "layer1": "absentfluff:block/gem_core_overlay",
-    "texture": "absentfluff:block/tanzanite_block"
-  }
-}

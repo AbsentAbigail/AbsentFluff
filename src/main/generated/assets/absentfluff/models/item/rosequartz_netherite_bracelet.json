@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "absentfluff:item/bracelet/netherite_bracelet",
-    "layer1": "absentfluff:item/bracelet/rosequartz"
-  }
-}
