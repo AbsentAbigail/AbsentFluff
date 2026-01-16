@@ -86,10 +86,15 @@ public class GemType implements Comparable<GemType> {
             15,
             new Tanzanite()).register();
     public static final GemType TOPAZ = new GemType("topaz", "Topaz",
-            "",
+            "It's buzzing",
             8.0F,
             7,
             new Topaz()).register();
+    public static final GemType TOURMALINE = new GemType("tourmaline", "Tourmaline",
+            "The call of the void",
+            7.0F,
+            12,
+            new Tourmaline()).register();
 
     private final String name;
     private final String displayName;

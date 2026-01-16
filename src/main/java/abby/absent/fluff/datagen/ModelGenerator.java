@@ -3,9 +3,10 @@ package abby.absent.fluff.datagen;
 import abby.absent.fluff.Constants;
 import abby.absent.fluff.Utility;
 import abby.absent.fluff.WoolColour;
+import abby.absent.fluff.blocks.GateCompoundBlock;
+import abby.absent.fluff.blocks.ModBlocks;
 import abby.absent.fluff.blocks.Pride;
 import abby.absent.fluff.blocks.gems.GemCore;
-import abby.absent.fluff.blocks.ModBlocks;
 import abby.absent.fluff.gems.GemType;
 import abby.absent.fluff.items.ModItems;
 import abby.absent.fluff.items.jewelry.MetalBase;
@@ -50,13 +51,27 @@ public class ModelGenerator extends FabricModelProvider {
         });
 
         Block gemCutterBlock = ModBlocks.GEM_BLOCKS.get("gem_cutter");
-//        Identifier gemCutter = GEM_CUTTER.upload(
-//                gemCutterBlock,
-//                TextureMap
-//                        .texture(blockIdentifier("gem_cutter")),
-//                blockStateModelGenerator.modelCollector
-//        );
         blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(gemCutterBlock, Utility.identifier("block/gem_cutter")));
+
+        Block gateCompoundBlock = GATE_COMPOUND_BLOCK;
+
+        Identifier gateCompoundId = TexturedModel.CUBE_ALL.upload(
+                gateCompoundBlock,
+                blockStateModelGenerator.modelCollector
+        );
+        Identifier gateCompoundIntangibleId = blockStateModelGenerator.createSubModel(
+                gateCompoundBlock,
+                "_intangible",
+                Models.CUBE_ALL,
+                TextureMap::all
+        );
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(gateCompoundBlock)
+                        .coordinate(BlockStateModelGenerator.createBooleanModelMap(
+                                GateCompoundBlock.INTANGIBLE,
+                                gateCompoundIntangibleId,
+                                gateCompoundId
+                        )));
 
         for (WoolColour colour : WoolColour.values()) {
             registerAlpacaWoolAndCarpets(
@@ -156,12 +171,10 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.basicItemMap.get("obsidian_shard"), Models.GENERATED);
         itemModelGenerator.register(ModItems.basicItemMap.get("tool_rod"), Models.GENERATED);
 
-        ModItems.spawnEggItems.forEach((entity, item) -> {
-            itemModelGenerator.register(
-                    item,
-                    new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty())
-            );
-        });
+        ModItems.spawnEggItems.forEach((entity, item) -> itemModelGenerator.register(
+                item,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty())
+        ));
     }
 
     private void simpleHandheldTexture(String id, String texture, ItemModelGenerator itemModelGenerator) {

@@ -115,7 +115,6 @@ public class AlpacaEntity extends AnimalEntity implements Shearable {
             --idleAnimationTimeout;
 
         if (eating) {
-            Utility.LOGGER.info("eat2");
             eatAnimationState.setRunning(eatBlockGoal.eatTicks > 0, age);
             eating = false;
         }

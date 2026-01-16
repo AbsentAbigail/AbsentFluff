@@ -20,6 +20,7 @@ public class Constants {
     public static final String BRACELET_SUFFIX = "_bracelet";
     public static final String NECKLACE_SUFFIX = "_necklace";
     public static final String KEY_SUFFIX = "_key";
+    public static final String BOMB_SUFFIX = "_bomb";
 
     public static final String BLOCK_SUFFIX = "_block";
     public static final String ORE_SUFFIX = "_ore";

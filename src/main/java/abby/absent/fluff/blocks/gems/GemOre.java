@@ -18,10 +18,6 @@ public class GemOre extends ExperienceDroppingBlock {
     public static Settings getSettingsFromType(GemType type) {
         Settings settings = Settings.copy(Blocks.STONE);
         float h = type.getHardness();
-//        int level = h >= 9 ? 3 :
-//                (h > 5 ? 2 :
-//                        (h > 1 ? 1 :
-//                                0));
         settings.strength(h * 0.5F, h * 0.6F).requiresTool();
         return settings;
     }

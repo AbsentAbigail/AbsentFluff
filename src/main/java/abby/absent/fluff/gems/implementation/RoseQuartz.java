@@ -1,6 +1,5 @@
 package abby.absent.fluff.gems.implementation;
 
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 

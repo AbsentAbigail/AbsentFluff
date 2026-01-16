@@ -1,7 +1,6 @@
 package abby.absent.fluff.gems.implementation;
 
 import abby.absent.fluff.miscellaneous.ModDamageSources;
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;

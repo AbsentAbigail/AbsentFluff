@@ -1,15 +1,13 @@
 package abby.absent.fluff.items;
 
 import abby.absent.fluff.Constants;
-import abby.absent.fluff.miscellaneous.ModDamageSources;
 import abby.absent.fluff.gems.GemType;
 import abby.absent.fluff.gems.implementation.GemImplementation;
-import com.mojang.datafixers.util.Pair;
+import abby.absent.fluff.miscellaneous.ModDamageSources;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.component.type.LoreComponent;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;

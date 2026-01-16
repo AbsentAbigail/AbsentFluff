@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -90,6 +91,7 @@ public class Kunzite implements GemImplementation {
 
             EquipmentSlot slot = hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
             itemStack.damage(1, user, slot);
+            user.incrementStat(Stats.USED.getOrCreateStat(itemStack.getItem()));
         }
 
         return TypedActionResult.success(itemStack);

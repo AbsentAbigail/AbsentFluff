@@ -13,6 +13,11 @@ public class ModComponents {
             ComponentType.<GlobalPos>builder().codec(GlobalPos.CODEC).build()
     );
 
-    protected static void initialize() {
+    static {
+        Utility.LOGGER.info("START REGISTER COMPONENTS");
+    }
+
+    public static void init() {
+        Utility.LOGGER.info("Finished registering components");
     }
 }

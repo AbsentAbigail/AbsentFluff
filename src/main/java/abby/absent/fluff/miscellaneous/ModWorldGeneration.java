@@ -16,21 +16,23 @@ import java.util.LinkedHashMap;
 public class ModWorldGeneration {
     public static final HashMap<GemType, RegistryKey<PlacedFeature>> ORE_PLACED_KEYS = new LinkedHashMap<>();
 
-    public ModWorldGeneration() {
-        Utility.LOGGER.debug("START REGISTER WORLD GENERATION");
-
-        GemType.forEach((name, type) ->
-            BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES,
-                ORE_PLACED_KEYS.get(type)));
-    }
-
     static {
+        Utility.LOGGER.info("START REGISTER WORLD GENERATION");
+
         GemType.forEach((name, type) ->
             ORE_PLACED_KEYS.put(
                 type,
                 RegistryKey.of(RegistryKeys.PLACED_FEATURE, Utility.identifier(name + Constants.ORE_SUFFIX))
         ));
+
+        GemType.forEach((name, type) ->
+                BiomeModifications.addFeature(
+                        BiomeSelectors.foundInOverworld(),
+                        GenerationStep.Feature.UNDERGROUND_ORES,
+                        ORE_PLACED_KEYS.get(type)));
+    }
+
+    public static void init() {
+        Utility.LOGGER.info("Finished registering world generation");
     }
 }

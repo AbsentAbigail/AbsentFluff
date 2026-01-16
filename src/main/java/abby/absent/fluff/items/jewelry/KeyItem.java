@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
@@ -65,8 +66,10 @@ public class KeyItem extends JewelryItem {
         }
 
         TypedActionResult<ItemStack> implementationResult = gemImplementation.keyUse(world, user, hand, itemStack, blockHitResult, result);
-        if (implementationResult.getResult() == ActionResult.SUCCESS && !gemImplementation.skipKeyDamage())
+        if (implementationResult.getResult() == ActionResult.SUCCESS && !gemImplementation.skipKeyDamage()){
             itemStack.damage(1, user, slot);
+            user.incrementStat(Stats.USED.getOrCreateStat(this));
+        }
         return implementationResult;
     }
 }

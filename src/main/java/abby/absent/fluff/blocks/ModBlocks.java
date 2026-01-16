@@ -25,18 +25,27 @@ public class ModBlocks {
     public static final HashMap<Pride, Block> PRIDE_BLOCKS = new HashMap<>();
     public static final HashMap<Pride, Block> PRIDE_CARPET_BLOCKS = new HashMap<>();
 
+    public static final Block GATE_COMPOUND_BLOCK;
+
     public static final List<Block> cutoutBlocks = new ArrayList<>();
 
-    public ModBlocks() {
-        Utility.LOGGER.debug("START REGISTER BLOCKS");
+    static {
+        Utility.LOGGER.info("START REGISTER BLOCKS");
 
         putAndRegisterGemBlocks();
 
         putWoolBlocks();
         putPrideBlocks();
+
+        GATE_COMPOUND_BLOCK = new GateCompoundBlock();
+        registerBlock(GATE_COMPOUND_BLOCK, "gate_compound_block");
     }
 
-    private void putWoolBlocks() {
+    public static void init() {
+        Utility.LOGGER.info("Finished registering blocks");
+    }
+
+    private static void putWoolBlocks() {
         for (WoolColour colour : WoolColour.values()) {
             String colourName = colour.name().toLowerCase();
 
@@ -60,7 +69,7 @@ public class ModBlocks {
         }
     }
 
-    private void putPrideBlocks() {
+    private static void putPrideBlocks() {
         for (Pride pride : Pride.values()) {
             String name = pride.name().toLowerCase();
             AbstractBlock.Settings blockSettings = AbstractBlock.Settings.create()
@@ -84,7 +93,7 @@ public class ModBlocks {
         }
     }
 
-    private void putAndRegisterGemBlocks() {
+    private static void putAndRegisterGemBlocks() {
         GemType.forEach((name, type) -> {
             GEM_BLOCKS.put(name + Constants.BLOCK_SUFFIX, new GemBlock(type));
             GEM_BLOCKS.put(name + Constants.ORE_SUFFIX, new GemOre(type));
@@ -103,12 +112,11 @@ public class ModBlocks {
         );
     }
 
-    private void registerBlock(Block block, String name) {
+    private static void registerBlock(Block block, String name) {
         registerBlockWithItemSettings(block, name, new Item.Settings());
     }
 
-    private void registerBlockWithItemSettings(Block block, String name, Item.Settings itemSettings) {
-        Utility.LOGGER.debug("Registered: {}", name);
+    private static void registerBlockWithItemSettings(Block block, String name, Item.Settings itemSettings) {
         Identifier identifier = Utility.identifier(name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, itemSettings));

@@ -9,18 +9,15 @@ import abby.absent.fluff.miscellaneous.ModItemGroups;
 import abby.absent.fluff.miscellaneous.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class AbsentFluff implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		new ModItems();
-		new ModBlocks();
-		new ModItemGroups();
-		new ModBlockEntities();
-		new ModWorldGeneration();
-		new ModEntities();
-		new ModComponents();
+		ModWorldGeneration.init();
+		ModComponents.init();
+		ModBlocks.init();
+		ModEntities.init();
+		ModItems.init();
+		ModItemGroups.init();
+		ModBlockEntities.init();
 	}
 }

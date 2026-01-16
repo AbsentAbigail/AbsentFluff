@@ -1,13 +1,18 @@
 package abby.absent.fluff.gems.implementation;
 
+import abby.absent.fluff.Utility;
+import abby.absent.fluff.entities.BombEntity;
+import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -38,10 +43,18 @@ public interface GemImplementation {
     /**
      * Jewelry item effects
      */
+    default String braceletTooltip() {
+        return "";
+    }
     default void braceletInventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {}
+    default void braceletInventoryTick(ItemStack stack, SlotReference slot, LivingEntity entity) {}
 
+    default String necklaceTooltip() {
+        return "";
+    }
     default void necklaceInventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {}
 
+    default void necklaceInventoryTick(ItemStack stack, SlotReference slot, LivingEntity entity) {}
 
     default String keyTooltip() {
         return "";
@@ -55,16 +68,26 @@ public interface GemImplementation {
         return false;
     }
 
-//    default ActionResult keyUseOnBlock(ItemUsageContext context, ActionResult actionResult) {
-//        return actionResult;
-//    }
-//
-//    default ActionResult keyUseOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand, ActionResult actionResult) {
-//        return actionResult;
-//    }
-
     default TypedActionResult<ItemStack> keyUse(World world, PlayerEntity user, Hand hand, ItemStack itemStack, BlockHitResult blockHitResult, TypedActionResult<ItemStack> actionResult) {
         return actionResult;
+    }
+
+    default String bombTooltip() {
+        return "";
+    }
+
+    default void bombExplosion(BombEntity entity, World world, BlockPos pos) {
+        Utility.LOGGER.info("boom");
+        DamageSource damageSource = entity.getDamageSources().explosion(entity, entity.getOwner());
+        world.createExplosion(
+                entity,
+                damageSource,
+                null,
+                pos.getX(), pos.getY(), pos.getZ(),
+                (float)(5),
+                false,
+                World.ExplosionSourceType.TNT
+        );
     }
 
     class EffectProbability {

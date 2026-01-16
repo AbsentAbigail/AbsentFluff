@@ -4,10 +4,7 @@ import abby.absent.fluff.Constants;
 import abby.absent.fluff.Utility;
 import abby.absent.fluff.entities.ModEntities;
 import abby.absent.fluff.gems.GemType;
-import abby.absent.fluff.items.jewelry.BraceletItem;
-import abby.absent.fluff.items.jewelry.KeyItem;
-import abby.absent.fluff.items.jewelry.MetalBase;
-import abby.absent.fluff.items.jewelry.NecklaceItem;
+import abby.absent.fluff.items.jewelry.*;
 import abby.absent.fluff.items.tools.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -28,8 +25,11 @@ public class ModItems {
     public static final Item OBSIDIAN_SHARD = new BasicItem();
     public static final Item TOOL_ROD = new BasicItem();
 
-    public ModItems() {
-        Utility.LOGGER.debug("START REGISTER ITEMS");
+    public static void init() {
+        Utility.LOGGER.info("Finished registering items");
+    }
+    static {
+        Utility.LOGGER.info("START REGISTER ITEMS");
 
         for (MetalBase metalBase : MetalBase.values()) {
             registerItemInMap(
@@ -41,6 +41,9 @@ public class ModItems {
             registerItemInMap(
                     metalBase.getLowercaseName() + Constants.KEY_SUFFIX, new BasicItem(), accessoryItemMap
             );
+            registerItemInMap(
+                    metalBase.getLowercaseName() + Constants.BOMB_SUFFIX, new BasicItem(), accessoryItemMap
+            );
         }
         registerGemItems();
 
@@ -51,27 +54,28 @@ public class ModItems {
                 new SpawnEggItem(ModEntities.ALPACA, 0xdec9c9, 0x9f8590, new Item.Settings())));
     }
 
-    private void registerItemInMap(String name, Item item, Map<String, Item> map) {
+    private static void registerItemInMap(String name, Item item, Map<String, Item> map) {
         map.put(name, registerItem(name, item));
     }
 
-    private Item registerItem(String name, Item item) {
+    private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Utility.identifier(name), item);
     }
 
-    private void registerGemItems() {
+    private static void registerGemItems() {
         GemType.forEach((gemName, type) -> {
             registerItemInMap(gemName, new GemItem(type), gemItemMap);
             for (MetalBase metalBase : MetalBase.values()) {
                 registerItemInMap(gemName + metalBase.getItemSuffix() + Constants.BRACELET_SUFFIX, new BraceletItem(type), accessoryItemMap);
                 registerItemInMap(gemName + metalBase.getItemSuffix() + Constants.NECKLACE_SUFFIX, new NecklaceItem(type), accessoryItemMap);
                 registerItemInMap(gemName + metalBase.getItemSuffix() + Constants.KEY_SUFFIX, new KeyItem(type), accessoryItemMap);
+                registerItemInMap(gemName + metalBase.getItemSuffix() + Constants.BOMB_SUFFIX, new BombItem(type), accessoryItemMap);
             }
         });
         registerTools();
     }
 
-    private void registerTools() {
+    private static void registerTools() {
         GemType.forEach((name, type) -> {
             registerTool(name + Constants.PICKAXE_SUFFIX, new PickaxeBase(type.getMaterial()));
             registerTool(name + Constants.AXE_SUFFIX, new AxeBase(type.getMaterial()));
@@ -81,7 +85,7 @@ public class ModItems {
         });
     }
 
-    private void registerTool(String name, Item tool) {
+    private static void registerTool(String name, Item tool) {
         gemToolMap.put(name, registerItem(name, tool));
     }
 }
